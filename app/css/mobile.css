@@ -1,0 +1,403 @@
+@font-face {
+  font-family: 'Gotham Book';
+  src: url('../webfonts/gotham_book.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'Gotham Medium';
+  src: url('../webfonts/gotham_medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*html{ }*/
+body, input{ font: 20px/1 'Gotham Book', Arial, sans-serif;}
+ol, ul{ list-style: none;}
+#player-wrapper {
+    background: black;
+    position: absolute;
+    top: 25%;
+    z-index: 1000;
+    left: 25%;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td{ font-style: normal; font-weight: normal; margin: 0; padding: 0;}
+.connect-modal {
+    display: block; /* ensures it’s invisible until it’s called */
+    position: absolute; /* makes the div go into a position that’s absolute to the browser viewing area */
+    left: 35%; /* positions the div half way horizontally */
+    top: 25%; /* positions the div half way vertically */
+    padding: 15px;
+    border: 2px solid black;
+    background-color: #ffffff;
+    /*width: 50%;*/
+    /*height: 50%;*/
+    z-index: 100; /* makes the div the top layer, so it’ll lay on top of the other content */
+}
+/*.connect-modal .container {*/
+    /*margin-left:200px;*/
+/*}*/
+.connect-modal .btn {
+    padding:4px;
+    border-radius:2px;
+    border:0;
+    color:white;
+    background-color:#E74C3C;
+}
+.connect-modal .input {
+    border-radius:3px;
+}
+.fade {
+    display: block;  /* ensures it’s invisible until it’s called */
+    position: absolute;  /* makes the div go into a position that’s absolute to the browser viewing area */
+    left: 0%; /* makes the div span all the way across the viewing area */
+    top: 0%; /* makes the div span all the way across the viewing area */
+    background-color: black;
+    -moz-opacity: 0.7; /* makes the div transparent, so you have a cool overlay effect */
+    opacity: .70;
+    filter: alpha(opacity=70);
+    width: 100%;
+    height: 100%;
+    z-index: 90; /* makes the div the second most top layer, so it’ll lay on top of everything else EXCEPT for divs with a higher z-index (meaning the #overlay ruleset) */
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    }
+
+.mobile-frame {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    -webkit-transition: -webkit-transform .2s linear;
+    -moz-transition: -moz-transform .2s linear;
+    transition: transform .2s linear;
+
+    }
+
+.mobile-content {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background-color: #22242a;
+    /*background: #eee url(../img/shattered.png) repeat top center;*/
+    }
+
+.mobile-nav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    }
+
+body {
+    font-family: sans-serif;
+    color: #444;
+    }
+
+a:link,
+a:visited,
+a:hover {
+    color: #000;
+    text-decoration: none;
+    }
+
+.mobile-header {
+    background-color:#df1f1f;
+}
+.mobile-footer {
+    /*background-color: #BBB;*/
+    background-color: #22242a;
+    border:1px solid #BBB;
+    border-width:1px 0 0 0;
+    }
+
+
+.mobile-nav {
+    background-color: #df1f1f;
+    box-shadow: inset -.0625em 0 .625em rgba(0,0,0,.6);
+    }
+
+.search-form {
+    padding: .625em;
+    margin-bottom: .625em;
+    }
+
+.search-form input {
+    background: #ac0809;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    padding: 5px 15px;
+    width: 85%;
+    margin-bottom:10px;
+    }
+.search-form input:focus {
+    outline:0;
+}
+::-webkit-input-placeholder{ color: #df1f1f;}
+:-moz-placeholder{ color: #df1f1f;}
+::-moz-placeholder{ color: #df1f1f;}
+:-ms-input-placeholder{ color: #df1f1f;}
+.main-nav {
+    padding-left: 0;
+    list-style: none;
+    clear:both;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+    border-top: 1px solid rgba(0,0,0,.05);
+    }
+
+.main-nav-item {
+    border-top: 1px solid rgba(255,255,255,.2);
+    border-bottom: 1px solid rgba(0,0,0,.05);
+    }
+
+.main-nav-item a {
+    display: block;
+    padding: 0 .625em;
+    line-height: 2.8;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+    tap-highlight-color: rgba(0, 0, 0, 0);
+    color: white;
+    }
+
+.mobile-nav-toggle {
+    width: 40px;
+    height: 40px;
+    margin: 5px .625em;
+    float: left;
+    border: 1px solid #999;
+    color: #EEE;
+    background: #34495E url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGc+PHJlY3QgaGVpZ2h0PSI1IiB3aWR0aD0iMjQiIHk9IjciIHg9IjciIGZpbGw9IiM5OTk5OTkiLz48cmVjdCBoZWlnaHQ9IjUiIHdpZHRoPSIyNCIgeT0iMTciIHg9IjciIGZpbGw9IiM5OTk5OTkiLz48cmVjdCBoZWlnaHQ9IjUiIHdpZHRoPSIyNCIgeT0iMjciIHg9IjciIGZpbGw9IiM5OTk5OTkiLz48L2c+PC9zdmc+) 0 0 no-repeat;
+    border-radius: 3px;
+    overflow: hidden;
+    text-align: left;
+    text-indent: 150%;
+    -webkit-appearance: none;
+    appearance: none;
+    outline:0;
+    }
+
+.mobile-header-inner,
+.mobile-content-inner,
+.mobile-footer-inner {
+    padding: 0 .625em;
+    }
+.mobile-content-inner {
+    padding:0;
+
+}
+.mobile-header-inner {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    float: left;
+    }
+
+.mobile-header-inner strong {
+    line-height: 40px;
+    font-size: 1.5em;
+    color: white;
+    float:left;
+    }
+
+.mobile-header-inner .mix {
+    line-height: 40px;
+    font-size: 0.8em;
+    color: rgb(255, 255, 255);
+    border-radius: 0 0 6px 6px;
+    background-color: #F39C12;
+    border: none;
+    font-weight: normal;
+    line-height: 1.4;
+    border-radius: 4px;
+    padding: 5px 15px;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-transition: 0.25s linear;
+    transition: 0.25s linear;
+    position:absolute;
+    top:-3px;
+    margin-left:60px;
+}
+.mobile-footer small {
+    color: #ECF0F1;
+    text-transform:uppercase;
+}
+.mobile-content h1 {
+    padding: 0 .416667em;
+    }
+
+.mobile-footer small {
+    line-height: 50px;
+    }
+
+.search-results h2 {
+    font-size: 1.25em;
+    }
+
+@media (max-width: 480px) {
+    .mobile-header-inner strong {
+        font-size: 1.1em;
+        }
+/*    .playerControls .main {
+        height:20px;
+    }
+    .playerControls .next, .playerControls .previous {
+        height: 20px;
+        background-size: 20px;
+        width: 15px;
+        margin: 1px 0;
+    }*/
+    .connect-modal {
+    display: block; /* ensures it’s invisible until it’s called */
+    position: absolute; /* makes the div go into a position that’s absolute to the browser viewing area */
+    left: 20px; /* positions the div half way horizontally */
+    top: 100px; /* positions the div half way vertically */
+    padding: 5px;
+    border: 2px solid black;
+    background-color: #ffffff;
+    width: 250px;
+    /*height: 50%;*/
+    z-index: 100; /* makes the div the top layer, so it’ll lay on top of the other content */
+    }
+    .connect-modal .btn {
+        padding:4px;
+        border-radius:2px;
+        border:0;
+        color:white;
+        background-color:#E74C3C;
+    }
+    .connect-modal .input {
+        border-radius:3px;
+        width:100px;
+    }
+}
+
+
+.playerControls .main{
+    width: 100px;
+    height: 12px;
+    margin: 10px 5px 10px 0px;
+    float: left;
+}
+.playerControls .main div {
+    float:left;
+    cursor:pointer;
+}
+.playerControls .next, .playerControls .previous {
+    margin: 0;
+}
+.playerControls .pause, .playerControls .play {
+    margin: 0 25px 0 10px;
+}
+/*.playerControls .next {background: rgba(0, 0, 0, 0) url(../img/player-next.png) no-repeat center center scroll;}
+.playerControls .previous {background: rgba(0, 0, 0, 0) url(../img/player-previous.png) no-repeat center center scroll;}
+.playerControls .pause {background: rgba(0, 0, 0, 0) url(../img/player-pause.png) no-repeat center center scroll;}
+.playerControls .play {background: rgba(0, 0, 0, 0) url(../img/player-play.png) no-repeat center center scroll;}*/
+#playlist {
+    background: #22242a;
+    color: #727785;
+    font-size: 16px;
+    /*height:650px;*/
+    overflow-x: hidden;
+    /*top: 110px;*/
+    /*width: 640px;*/
+}
+#current{ color: white; font-size: 20px; padding: 20px;}
+#playlist ol, #playlist li{ cursor: pointer;}
+#playlist ol{ border-bottom: 1px solid #33363f; overflow-x: hidden;padding-left:0px;}
+#playlist li{ border-top: 1px solid #33363f; cursor: pointer;}
+#playlist li p {
+     margin-top:0;margin-bottom:0;
+}
+#playlist li .move-wrap {
+    float:left;
+    padding: 10px 10px;
+    /*margin-top: 16px;*/
+    /*margin-bottom: 16px;*/
+}
+#playlist li p.item-move{
+    padding:10px 5px;
+    color: white;
+    float:left;
+}
+#playlist li p.item-move:hover {
+    background-color:white;
+    color:black;
+}
+#history li{ color: #33522d;}
+.item-title{ margin-right: 80px;
+padding: 10px 5px;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;}
+.item-title:hover{ background: #1171A2; color: white;}
+.item-delete{ color: #ac0809; float: right; text-align: center; padding: 10px 0; width: 80px;}
+.item-delete:hover{ background: #ac0809; color: white;}
+.video{ cursor: pointer; min-height: 90px; padding: 10px; padding-left: 140px; position: relative;}
+/*.video:nth-child(2n-1){ background: white;}*/
+.video-image{ float: left; left: 10px; position: absolute; top: 10px;}
+.video-title{ padding-top: 5px;}
+.video-author{ color: #df1f1f; font-size: 14px; padding: 5px 0;}
+.video-description{ color: #727785; font-size: 12px; line-height: 1.5;}
+.video:hover{ background: #22242a; color: white;}
+
+.cg-notify-message {
+    position:fixed;
+    left:50%;
+    top:-50px;
+    z-index: 9999;
+
+    border:1px solid rgb(240, 195, 109);
+    background-color: rgb(249, 237, 190);
+    font-size: 13px;
+    font-weight: bold;
+    padding:2px 8px 2px 8px;
+
+    -webkit-transition: top 0.5s ease-out,opacity 0.5s ease-out 4s; /* 4 sec delay for longer message visibility */
+    -moz-transition: top 0.5s ease-out,opacity 0.5s ease-out 4s;
+    -o-transition: top 0.5s ease-out,opacity 0.5s ease-out 4s;
+    transition: top 0.5s ease-out,opacity 0.5s ease-out 4s;
+}
+@font-face {
+    font-family: 'icomoon';
+    src:url('../webfonts/icomoon.eot');
+    src:url('../webfonts/icomoon.eot?#iefix') format('embedded-opentype'),
+        url('../webfonts/icomoon.ttf') format('truetype'),
+        url('../webfonts/icomoon.woff') format('woff'),
+        url('../webfonts/icomoon.svg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class*="icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    font-size:34px;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-forward:before {
+    content: "\e600";
+}
+.icon-pause:before {
+    content: "\e601";
+}
+.icon-play:before {
+    content: "\e602";
+}
