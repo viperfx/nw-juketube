@@ -5,6 +5,7 @@
 /node-webkit.app
 nwsnapshot
 /generated
+/dist/node_modules
 vendor/webfonts/gotham_book.ttf
 
 vendor/webfonts/gotham_medium.ttf

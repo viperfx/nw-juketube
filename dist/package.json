@@ -6,17 +6,8 @@
     "plugin": true
   },
   "dependencies": {
-    "grunt-angular-templates": "0.3.8",
-    "grunt-ngmin": "~0.0.3",
-    "protractor": ">=0.8.0",
-    "jasmine-given": "~2.1.0",
-    "grunt": "~0.4.1",
-    "grunt-concat-sourcemap": "~0.3.0",
-    "lineman": "0.14.5",
-    "coffee-script": "~1.6.3",
     "express": "3.x",
     "socket.io": "0.9.x",
-    "scrape": "0.2.3",
-    "node.io":"0.5.1"
+    "scrape": "0.2.3"
   }
 }
