@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <title>ng-JukeTube</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/mobile.css" media="all" />
+  </head>
+  <body data-ng-controller="VideosController" ng-init="youtube.videoTitle='Loading &hellip;'">
+    <div id="player-wrapper" data-ng-show="showPlayer">
+      <div id="placeholder"></div>
+    </div>
+    <div class="fade" data-ng-hide="connected"></div>
+    <div class="connect-modal" data-ng-hide="connected">
+      <div class="container">
+      <h3>Join or Host a room</h3>
+      <input class="input" name="room" type="text" placeholder="Room ID" data-ng-model="room">
+      <input class="btn" type="submit" ng-click="connect(room)" value="Join">
+      </br>
+      </br>
+      <input class="btn" type="submit" value="Host" data-ng-click="connect()">
+      </div>
+    </div>
+    <mobile-frame>
+    <mobile-header>
+        <strong data-ng-click="togglePlayer()">JukeTube</strong>
+
+        <small>{{room}}</small>
+        <a class="mix" ng-show="mixId" ng-click="getMix(mixId)" href="#">Mix Found</a>
+
+    </mobile-header>
+    <mobile-nav>
+        <form id="search" class="search-form" data-ng-submit="search()">
+          <input id="query" name="q" type="search" placeholder="Search YouTube &hellip;" data-ng-model="query">
+          </form>
+          <ul class="main-nav">
+            <li class="main-nav-item">
+                    <a href="/">Home</a>
+            </li>
+            <li class="main-nav-item">
+                    <a href="/upcoming">Upcoming</a>
+            </li>
+            <li class="main-nav-item">
+                    <a href="/history">History</a>
+            </li>
+          </ul>
+
+    </mobile-nav>
+    <mobile-content ng-view></mobile-content>
+    <mobile-footer>
+      <small>{{ youtube.state }}</small>
+      <small class="playerControls">
+        <div class="main">
+          <!-- <div class="previous" data-ng-click="playerControl('previous')"></div> -->
+          <div class="play icon-play" data-ng-click="playerControl('play')" ng-show="youtube.state=='stopped' || youtube.state=='paused' || youtube.state=='ended'"></div>
+          <div class="pause icon-pause" data-ng-click="playerControl('pause')" ng-show="youtube.state=='playing'"></div>
+          <div class="next icon-forward" data-ng-click="playerControl('next')"></div>
+        </div>
+      </small>
+    </mobile-footer>
+</mobile-frame>
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="js/socket.io.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+
+  </body>
+</html>
